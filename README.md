@@ -11,7 +11,7 @@ Phone number from Côte d'Ivoire according  : https://fr.wikipedia.org/wiki/List
 demo.js 
 ```javascript
 
-import { CIphonePnn } from './js/cipnn.js';
+import { CIphonePnn } from './js/cipnn.min.js';
 
 const myPhone = "002252709130834";
 const pnn =  new CIphonePnn(myPhone);
@@ -34,4 +34,19 @@ index.html
 </html>
 
 ```
+# Properties
 
+| Attribute      | Description | Type |
+| ----------- | ----------- | ----------- |
+| iPrefix      | international prefix       | String / null      |
+| format   | Text     phone number format :  local or international   | String       |
+| phone   | Text      phone number  |
+| localPart   | Text     phone number without international prefix  | String      |
+| network   | network provider, company        | String / null       |
+| type   | number type, mobil or home phone        | String / null       |
+
+# Number migration
+
+| Attribute      | Description | Type |
+| ----------- | ----------- | ----------- |
+| migrate8To10      | Return new number if the number is correct or null if it's an invalid number       | String / null      |
