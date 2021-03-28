@@ -9,7 +9,7 @@ Phone number from Côte d'Ivoire according  : https://fr.wikipedia.org/wiki/List
 
 
 demo.js 
-``javascript
+```javascript
 
 import { CIphonePnn } from './js/cipnn.js';
 
@@ -19,19 +19,19 @@ console.log(`number analysis `, pnn);
 console.log(`Migrating ${myPhone} to 10, 
 ${pnn.migrate8To10()} is your new ${pnn.findType()} number`);
 
-``
+```
 
 index.html 
-``html
+```html
 <!DOCTYPE html>
-<head>
-</head>
-<body>
-  <h3 style="text-align: center;"> Open the js console on developer tool</h3>
-  <!--HTML content goes here-->
-  <script type="module" src="demo.js"></script>
-</body>
+    <head>
+    </head>
+    <body>
+    <h3 style="text-align: center;"> Open the js console on developer tool</h3>
+    <!--HTML content goes here-->
+    <script type="module" src="demo.js"></script>
+    </body>
 </html>
 
-``
+```
 
