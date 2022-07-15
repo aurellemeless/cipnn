@@ -10,34 +10,48 @@ Phone number from Côte d'Ivoire (RCI) according  : https://fr.wikipedia.org/wik
 You can build from terminal
 `npm run build`
 
-#Demo
+#Usage
+## Using the cipnn library
 
-demo.js 
+in your html
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>CI Phone PNN</title>
+    </head>
+    <body>
+      <h3 style="text-align: center;"> Open the js console on developer tool</h3>
+        <script type="text/javascript" src="./dist/cipnn.js"></script>
+        <script>
+
+          const myPhone = "0022509130834";
+          const pnn =  new cipnn.phone(myPhone);
+          console.log(`number analysis `, pnn);
+          console.log(`Migrating ${myPhone} to 10, ${pnn.migrate8To10()} is your new ${pnn.findType()} number`);
+
+        </script>
+    </body>
+    
+</html>
+
+```
+## Using as module dependency
+
 ```javascript
 
-import { CIphonePnn } from './js/cipnn.min.js';
+import { cipnn } from './js/cipnn';
 
 const myPhone = "002252709130834";
-const pnn =  new CIphonePnn(myPhone);
+const pnn =  new cipnn(myPhone);
 console.log(`number analysis `, pnn);
 console.log(`Migrating ${myPhone} to 10, 
 ${pnn.migrate8To10()} is your new ${pnn.findType()} number`);
 
 ```
 
-index.html 
-```html
-<!DOCTYPE html>
-    <head>
-    </head>
-    <body>
-    <h3 style="text-align: center;"> Open the js console on developer tool</h3>
-    <!--HTML content goes here-->
-    <script type="module" src="demo.js"></script>
-    </body>
-</html>
-
-```
 # Properties
 
 | Attribute      | Description | Type |
