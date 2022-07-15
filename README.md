@@ -10,10 +10,11 @@ Phone number from Côte d'Ivoire (RCI) according  : https://fr.wikipedia.org/wik
 You can build from terminal
 `npm run build`
 
-#Demo
+#Usage
 ## Using the cipnn library
 
-index.html 
+in your html
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -37,9 +38,8 @@ index.html
 </html>
 
 ```
-## Using as npm dependency
+## Using as module dependency
 
-demo.js 
 ```javascript
 
 import { cipnn } from './js/cipnn';
@@ -51,23 +51,6 @@ console.log(`Migrating ${myPhone} to 10,
 ${pnn.migrate8To10()} is your new ${pnn.findType()} number`);
 
 ```
-
-index.html 
-```html
-<!DOCTYPE html>
-    <head>
-        <title>CI Phone PNN</title>
-    </head>
-    <body>
-    <h3 style="text-align: center;"> Open the js console on developer tool</h3>
-    <!--HTML content goes here-->
-    <script type="module" src="demo.js"></script>
-    </body>
-</html>
-
-```
-
-
 
 # Properties
 
