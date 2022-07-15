@@ -8,7 +8,7 @@ import { CI_PREFIX, FORMAT_INTERNATIONAL, FORMAT_LOCAL,
  * Reference : https://fr.wikipedia.org/wiki/Liste_des_indicatifs_t%C3%A9l%C3%A9phoniques_en_C%C3%B4te_d%27Ivoire
  * @author Memel MELESS
  */
-export class cipnn {
+export class phone {
 
     iPrefix = null; // international prefix
     format = FORMAT_LOCAL; // phone number format :  local or international
