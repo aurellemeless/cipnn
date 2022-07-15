@@ -1,6 +1,6 @@
 {
   "name": "cipnn",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "CI Phone PNN help to migrate ivorian local phone number from 8 to 10 digits",
   "main": "src/index.js",
   "scripts": {
@@ -21,10 +21,6 @@
     "@webpack-cli/generators": "^2.5.0",
     "babel-loader": "^8.2.5",
     "eslint": "^8.18.0",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-uglify": "^3.0.2",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "^2.6.2",
     "webpack": "^5.73.0",
