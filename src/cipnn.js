@@ -1,11 +1,14 @@
-import { CI_PREFIX, FORMAT_INTERNATIONAL, FORMAT_LOCAL, MOBILE, OPERATORS, OPERATOR_MOOV, OPERATOR_MTN, OPERATOR_ORANGE, PHONE, PNN_MOBILE_10, PNN_MOBILE_8, PNN_PHONE_10 } from "./constants";
+import { CI_PREFIX, FORMAT_INTERNATIONAL, FORMAT_LOCAL, 
+    MOBILE, OPERATORS, OPERATOR_MOOV, OPERATOR_MTN, 
+    OPERATOR_ORANGE, PHONE, PNN_MOBILE_10, PNN_MOBILE_8, 
+    PNN_PHONE_10 } from "./constants";
 
 /**
  * 
  * Reference : https://fr.wikipedia.org/wiki/Liste_des_indicatifs_t%C3%A9l%C3%A9phoniques_en_C%C3%B4te_d%27Ivoire
  * @author Memel MELESS
  */
-export class CIphonePnn {
+export class cipnn {
 
     iPrefix = null; // international prefix
     format = FORMAT_LOCAL; // phone number format :  local or international
