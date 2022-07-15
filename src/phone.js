@@ -1,11 +1,14 @@
-import { CI_PREFIX, FORMAT_INTERNATIONAL, FORMAT_LOCAL, MOBILE, OPERATORS, OPERATOR_MOOV, OPERATOR_MTN, OPERATOR_ORANGE, PHONE, PNN_MOBILE_10, PNN_MOBILE_8, PNN_PHONE_10 } from "./constants";
+import { CI_PREFIX, FORMAT_INTERNATIONAL, FORMAT_LOCAL, 
+    MOBILE, OPERATORS, OPERATOR_MOOV, OPERATOR_MTN, 
+    OPERATOR_ORANGE, PHONE, PNN_MOBILE_10, PNN_MOBILE_8, 
+    PNN_PHONE_10 } from "./constants";
 
 /**
  * 
  * Reference : https://fr.wikipedia.org/wiki/Liste_des_indicatifs_t%C3%A9l%C3%A9phoniques_en_C%C3%B4te_d%27Ivoire
  * @author Memel MELESS
  */
-export class CIphonePnn {
+export class phone {
 
     iPrefix = null; // international prefix
     format = FORMAT_LOCAL; // phone number format :  local or international
@@ -31,8 +34,8 @@ export class CIphonePnn {
      */
 
     findIprefix(){
-        const hasPrefix = CI_PREFIX.filter(prfx => this.phone.startsWith(prfx));
-       return hasPrefix.length ? hasPrefix[0]: null;
+        const prefix = CI_PREFIX.find(prfx => this.phone.startsWith(prfx));
+       return !!prefix ? prefix : null;
     }
 
       /**
@@ -41,7 +44,7 @@ export class CIphonePnn {
      * @returns {String}
      */ 
     findLocalPart(){
-        return !!this.iPrefix ? this.phone.substring(this.iPrefix.length,this.phone.length) : this.phone;
+        return this.iPrefix ? this.phone.substring(this.iPrefix.length,this.phone.length) : this.phone;
     }
      /**
      * 
@@ -140,9 +143,9 @@ export class CIphonePnn {
             return null;
         }
         if(phone8Cat === MOBILE){
-            if(OPERATORS.MOOV.prefixMobile8.indexOf(phone8.substring(0,2)) > - 1){
+            if(OPERATORS.MOOV.prefixMobile8.includes(phone8.substring(0,2))){
                 phone10 += OPERATORS.MOOV.prefixMobile10 + phone8;
-            }else if(OPERATORS.MTN.prefixMobile8.indexOf(phone8.substring(0,2)) > - 1){
+            }else if(OPERATORS.MTN.prefixMobile8.includes(phone8.substring(0,2))){
                 phone10 += OPERATORS.MTN.prefixMobile10 + phone8;
             }else{
                 phone10 += OPERATORS.ORANGE.prefixMobile10 + phone8;
