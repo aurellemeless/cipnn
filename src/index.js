@@ -1,2 +1,2 @@
-import { phone } from "./phone.js";
-export { phone };
+import { Phone } from './phone.js';
+export { Phone };
