@@ -1,18 +1,114 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>CI Phone PNN</title>
-    </head>
-    <body>
-      <h3 style="text-align: center;"> Open the js console on developer tool</h3>
-      <script type="text/javascript"> 
-      const myPhone = "00225090000000";
-      const pnn =  new cipnn.phone(myPhone);
-      console.log(`number analysis `, pnn);
-      console.log(`Migrating ${myPhone} to 10, ${pnn.migrate8To10()} is your new ${pnn.findType()} number`);
-      </script>
-    </body>
-    
+	<head>
+		<meta charset="utf-8" />
+		<title>CI Phone PNN : demo</title>
+		<style>
+			.console {
+				padding: 15px;
+				border-radius: 5px;
+				border: solid gray 1px;
+				background-color: #dededec5;
+				margin-top: 20px;
+			}
+
+			.container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.detail-label {
+				font-weight: bold;
+				font-size: 16px;
+			}
+
+			input {
+				width: 100%;
+				height: 35px;
+				border-radius: 5px;
+				margin: 10px;
+			}
+
+			button {
+				width: 100%;
+				margin: 10px 15px;
+				height: 35px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3 style="text-align: center">Flat demo</h3>
+		<div class="container">
+			<div class="wrapper">
+				<div>
+					<form>
+						<div>
+							<input id="phone" type="text" />
+						</div>
+						<div>
+							<button type="button" onclick="checkNumer()">Get number details</button>
+						</div>
+					</form>
+				</div>
+
+				<div id="details">
+					<div class="detail">
+						<div class="detail-label">International prefix</div>
+						<div id="number-prefix"></div>
+					</div>
+					<div class="detail">
+						<div class="detail-label">Network Operator</div>
+						<div id="number-operator"></div>
+					</div>
+					<div class="detail">
+						<div class="detail-label">Type</div>
+						<div id="number-type"></div>
+					</div>
+					<div class="detail">
+						<div class="detail-label">Local number</div>
+						<div id="number-localpart"></div>
+					</div>
+
+					<div class="detail">
+						<div class="detail-label">Migrated 8 to 10 number : international</div>
+						<div id="number-migrate8to10"></div>
+					</div>
+					<div class="detail">
+						<div class="detail-label">Migrated 8 to 10 number : local</div>
+						<div id="number-migrate8to10-local"></div>
+					</div>
+
+					<div class="console">
+						<div class="detail-label">Object</div>
+						<div id="number-json"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			const details = document.getElementById('details');
+			details.style.visibility = false;
+			function checkNumer() {
+				const myPhone = document.getElementById('phone').value;
+				const pnn = new cipnn.Phone(myPhone);
+				document.getElementById('number-json').innerHTML = JSON.stringify(pnn);
+				document.getElementById('number-operator').innerHTML = pnn.network;
+				document.getElementById('number-prefix').innerHTML = pnn.iPrefix
+					? pnn.iPrefix
+					: 'No international prefix found';
+				document.getElementById('number-type').innerHTML = pnn.type;
+				document.getElementById('number-localpart').innerHTML = pnn.localPart;
+				document.getElementById('number-migrate8to10').innerHTML = pnn.migrate8To10();
+				document.getElementById('number-migrate8to10-local').innerHTML = pnn.migrate8To10(false);
+				details.style.visibility = true;
+
+				console.log(`Number analysis `, pnn);
+				console.log(
+					`Migrating ${myPhone} to 10, ${pnn.migrate8To10()} is your new ${pnn.findType()} number`
+				);
+			}
+		</script>
+	</body>
 </html>
- 
